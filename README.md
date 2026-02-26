@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+﻿# 📋 Kanban Board - Frontend Developer Assessment
 
-## Getting Started
+A comprehensive Kanban Board application designed to implement frontend programming assessment requirements. The application focuses on efficiency in state management, data fetching, and seamless user experience.
 
-First, run the development server:
+## 🎯 Implemented Requirements
 
+Based on the task PDF, the following has been implemented:
+- **4 Main Columns:** (Backlog, In Progress, Review, Done).
+- **Complete CRUD Operations:** Create, update, and delete tasks.
+- **Drag & Drop:** Move tasks between columns using `@hello-pangea/dnd`.
+- **Search Bar:** Filter tasks by title or description.
+- **Infinite Scroll:** Progressive task loading within each column to ensure high performance.
+- **Styling:** Using **Material UI (MUI)** to build a modern and responsive interface.
+- **Data Management:** Using **React Query** for data caching and synchronization.
+- **State Management:** Using **Zustand** to manage UI and search state.
+
+## 🛠️ Tech Stack
+- **Framework:** Next.js 14 (App Router)
+- **Styling:** Material UI v6
+- **Data Fetching:** TanStack Query (React Query) & Axios
+- **State Management:** Zustand
+- **Form Handling:** React Hook Form
+- **Drag & Drop:** @hello-pangea/dnd
+
+## 📦 Setup & Installation
+
+### Prerequisites
+- Node.js 18.17 or higher
+- npm or yarn
+- Git (optional)
+
+### 1. Install Dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Environment Variables Setup
+Create a `.env.local` file at the project root:
+```bash
+NEXT_PUBLIC_API_URL=http://localhost:3000
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Run Development Server
+```bash
+npm run dev
+```
+The application will be available at: `http://localhost:3000`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Run Database Server
+In a separate terminal window:
+```bash
+npm run db:start
+```
+JSON Server runs on: `http://localhost:3001`
 
-## Learn More
+### 5. Production Build
+```bash
+npm run build
+npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 6. Testing & Linting
+```bash
+npm run lint
+npm run type-check
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Project Structure
+```
+src/
+├── app/              # Next.js App Router
+├── components/       # React Components
+├── hooks/           # Custom Hooks
+├── services/        # API Services
+├── store/           # Zustand Store
+└── types/           # TypeScript Types
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+public/              # Static Files
+db.json             # Mock Database
+```
 
-## Deploy on Vercel
+## 🚀 How to Use
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Basic Operations:
+1. **Create a New Task:** Click "Add Task" in the header
+2. **Edit a Task:** Click on a task to open details and edit
+3. **Delete a Task:** Click the delete button on the task
+4. **Move Between Columns:** Drag and drop tasks between columns
+5. **Search:** Use the Search Bar to find tasks
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔧 Available Commands
+- `npm run dev` - Start development server
+- `npm run build` - Build the application
+- `npm run start` - Run production
+- `npm run db:start` - Start database server
+- `npm run lint` - Check code
+
+## 📝 Important Notes
+- The application uses JSON Server as a mock database for development
+- Make sure to run both dev server and db server together
+- The `db.json` file contains initial task data
+
+## 🐛 Troubleshooting
+
+**Problem:** Cannot connect to the database
+- **Solution:** Make sure `npm run db:start` is running in a separate terminal
+
+**Problem:** TypeScript errors
+- **Solution:** Run `npm run type-check` to check all errors
+
+**Problem:** Libraries not working
+- **Solution:** Delete `node_modules` and `.next`, then run `npm install` and `npm run dev` again
